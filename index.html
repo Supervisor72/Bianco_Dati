@@ -52,8 +52,8 @@
   <label for="deltaMese">DELTA MESE €:</label>
   <input type="number" id="deltaMese">
 
-  <label for="deltaPrMedio">DELTA PR.MEDIO €:</label>
-  <input type="number" id="deltaPrMedio">
+  <label for="deltaClima">DELTA CLIMA €:</label>
+  <input type="number" id="deltaClima">
 
   <h3>Prodotti Focus</h3>
 
@@ -100,7 +100,7 @@
     function generaEmail() {
       const pdv = document.getElementById('pdv').value;
       const deltaMese = document.getElementById('deltaMese').value;
-      const deltaPrMedio = document.getElementById('deltaPrMedio').value;
+      const deltaClima = document.getElementById('deltaClima').value;
       const aeg = document.getElementById('aeg').value;
       const asciugatrici = document.getElementById('asciugatrici').value;
 
@@ -111,7 +111,7 @@
       let corpoEmail = `AVANZAMENTO SETTORE BIANCO%0A%0A`;
       corpoEmail += `Punto Vendita: ${pdv}%0A`;
       corpoEmail += `DELTA MESE €: ${deltaMese}%0A`;
-      corpoEmail += `DELTA PR.MEDIO €: ${deltaPrMedio}%0A%0A`;
+      corpoEmail += `DELTA CLIMA €: ${deltaClima}%0A%0A`;
       corpoEmail += `--- Prodotti Focus ---%0A`;
       corpoEmail += `AEG: ${aeg}%0A`;
       corpoEmail += `ASCIUGATRICI: ${asciugatrici}%0A%0A`;
