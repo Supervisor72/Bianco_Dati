@@ -15,7 +15,7 @@
       margin-top: 15px;
       font-weight: bold;
     }
-    select, input[type="number"], input[type="text"] {
+    select, input[type="number"] {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
@@ -63,36 +63,40 @@
   <label for="asciugatrici">ASCIUGATRICI:</label>
   <input type="number" id="asciugatrici">
 
+  <label for="kitGiunzione">KIT GIUNZIONE:</label>
+  <input type="number" id="kitGiunzione">
+
+  <label for="fuoriGriglia">FUORI GRIGLIA:</label>
+  <input type="number" id="fuoriGriglia">
+
   <h3>ATTACH BIANCO</h3>
 
-  <div id="colorFieldsContainer">
-    <label for="ekos">EKOS:</label>
-    <select id="ekos">
-      <option value="ROSSO">ROSSO</option>
-      <option value="ARANCIO">ARANCIO</option>
-      <option value="GIALLO">GIALLO</option>
-      <option value="VERDINO">VERDINO</option>
-      <option value="VERDE">VERDE</option>
-    </select>
+  <label for="ekos">EKOS:</label>
+  <select id="ekos">
+    <option value="ROSSO">ROSSO</option>
+    <option value="ARANCIO">ARANCIO</option>
+    <option value="GIALLO">GIALLO</option>
+    <option value="VERDINO">VERDINO</option>
+    <option value="VERDE">VERDE</option>
+  </select>
 
-    <label for="schucko">SCHUCKO:</label>
-    <select id="schucko">
-      <option value="ROSSO">ROSSO</option>
-      <option value="ARANCIO">ARANCIO</option>
-      <option value="GIALLO">GIALLO</option>
-      <option value="VERDINO">VERDINO</option>
-      <option value="VERDE">VERDE</option>
-    </select>
+  <label for="schucko">SCHUCKO:</label>
+  <select id="schucko">
+    <option value="ROSSO">ROSSO</option>
+    <option value="ARANCIO">ARANCIO</option>
+    <option value="GIALLO">GIALLO</option>
+    <option value="VERDINO">VERDINO</option>
+    <option value="VERDE">VERDE</option>
+  </select>
 
-    <label for="anticalcare">ANTICALCARE:</label>
-    <select id="anticalcare">
-      <option value="ROSSO">ROSSO</option>
-      <option value="ARANCIO">ARANCIO</option>
-      <option value="GIALLO">GIALLO</option>
-      <option value="VERDINO">VERDINO</option>
-      <option value="VERDE">VERDE</option>
-    </select>
-  </div>
+  <label for="anticalcare">ANTICALCARE:</label>
+  <select id="anticalcare">
+    <option value="ROSSO">ROSSO</option>
+    <option value="ARANCIO">ARANCIO</option>
+    <option value="GIALLO">GIALLO</option>
+    <option value="VERDINO">VERDINO</option>
+    <option value="VERDE">VERDE</option>
+  </select>
 
   <button onclick="generaEmail()">Invia Report via Email</button>
 
@@ -103,6 +107,8 @@
       const deltaClima = document.getElementById('deltaClima').value;
       const aeg = document.getElementById('aeg').value;
       const asciugatrici = document.getElementById('asciugatrici').value;
+      const kitGiunzione = document.getElementById('kitGiunzione').value;
+      const fuoriGriglia = document.getElementById('fuoriGriglia').value;
 
       const ekos = document.getElementById('ekos').value;
       const schucko = document.getElementById('schucko').value;
@@ -114,8 +120,10 @@
       corpoEmail += `DELTA CLIMA €: ${deltaClima}%0A%0A`;
       corpoEmail += `--- Prodotti Focus ---%0A`;
       corpoEmail += `AEG: ${aeg}%0A`;
-      corpoEmail += `ASCIUGATRICI: ${asciugatrici}%0A%0A`;
-      corpoEmail += `--- ATTACH  ---%0A`;
+      corpoEmail += `ASCIUGATRICI: ${asciugatrici}%0A`;
+      corpoEmail += `KIT GIUNZIONE: ${kitGiunzione}%0A`;
+      corpoEmail += `FUORI GRIGLIA: ${fuoriGriglia}%0A%0A`;
+      corpoEmail += `--- ATTACH BIANCO ---%0A`;
       corpoEmail += `EKOS: ${ekos}%0A`;
       corpoEmail += `SCHUCKO: ${schucko}%0A`;
       corpoEmail += `ANTICALCARE: ${anticalcare}%0A`;
