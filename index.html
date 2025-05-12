@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Report PDV</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    select, input[type="number"], input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    h3 {
+      margin-top: 30px;
+      color: #333;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Report Avanzamento PDV</h2>
+
+  <label for="pdv">Punto Vendita:</label>
+  <select id="pdv">
+    <option value="FANO">FANO</option>
+    <option value="MONSANO">MONSANO</option>
+    <option value="OSIMO">OSIMO</option>
+    <option value="MACERATA">MACERATA</option>
+    <option value="CIVITANOVA">CIVITANOVA</option>
+    <option value="PESARO">PESARO</option>
+  </select>
+
+  <label for="deltaMese">DELTA MESE €:</label>
+  <input type="number" id="deltaMese">
+
+  <label for="deltaPrMedio">DELTA PR.MEDIO €:</label>
+  <input type="number" id="deltaPrMedio">
+
+  <h3>Prodotti Focus</h3>
+
+  <label for="aeg">AEG:</label>
+  <input type="number" id="aeg">
+
+  <label for="asciugatrici">ASCIUGATRICI:</label>
+  <input type="number" id="asciugatrici">
+
+  <h3>ATTACH BIANCO</h3>
+
+  <div id="colorFieldsContainer">
+    <label for="ekos">EKOS:</label>
+    <select id="ekos">
+      <option value="ROSSO">ROSSO</option>
+      <option value="ARANCIO">ARANCIO</option>
+      <option value="GIALLO">GIALLO</option>
+      <option value="VERDINO">VERDINO</option>
+      <option value="VERDE">VERDE</option>
+    </select>
+
+    <label for="schucko">SCHUCKO:</label>
+    <select id="schucko">
+      <option value="ROSSO">ROSSO</option>
+      <option value="ARANCIO">ARANCIO</option>
+      <option value="GIALLO">GIALLO</option>
+      <option value="VERDINO">VERDINO</option>
+      <option value="VERDE">VERDE</option>
+    </select>
+
+    <label for="anticalcare">ANTICALCARE:</label>
+    <select id="anticalcare">
+      <option value="ROSSO">ROSSO</option>
+      <option value="ARANCIO">ARANCIO</option>
+      <option value="GIALLO">GIALLO</option>
+      <option value="VERDINO">VERDINO</option>
+      <option value="VERDE">VERDE</option>
+    </select>
+  </div>
+
+  <button onclick="generaEmail()">Invia Report via Email</button>
+
+  <script>
+    function generaEmail() {
+      const pdv = document.getElementById('pdv').value;
+      const deltaMese = document.getElementById('deltaMese').value;
+      const deltaPrMedio = document.getElementById('deltaPrMedio').value;
+      const aeg = document.getElementById('aeg').value;
+      const asciugatrici = document.getElementById('asciugatrici').value;
+
+      const ekos = document.getElementById('ekos').value;
+      const schucko = document.getElementById('schucko').value;
+      const anticalcare = document.getElementById('anticalcare').value;
+
+      let corpoEmail = `AVANZAMENTO SETTORE BIANCO%0A%0A`;
+      corpoEmail += `Punto Vendita: ${pdv}%0A`;
+      corpoEmail += `DELTA MESE €: ${deltaMese}%0A`;
+      corpoEmail += `DELTA PR.MEDIO €: ${deltaPrMedio}%0A%0A`;
+      corpoEmail += `--- Prodotti Focus ---%0A`;
+      corpoEmail += `AEG: ${aeg}%0A`;
+      corpoEmail += `ASCIUGATRICI: ${asciugatrici}%0A%0A`;
+      corpoEmail += `--- ATTACH  ---%0A`;
+      corpoEmail += `EKOS: ${ekos}%0A`;
+      corpoEmail += `SCHUCKO: ${schucko}%0A`;
+      corpoEmail += `ANTICALCARE: ${anticalcare}%0A`;
+
+      window.location.href = `mailto:d.pavoni@dml-italia.com?subject=AVANZAMENTO SETTORE BIANCO&body=${corpoEmail}`;
+    }
+  </script>
+
+</body>
+</html>
